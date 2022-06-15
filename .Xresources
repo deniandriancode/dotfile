@@ -1,0 +1,7 @@
+URxvt.depth: 32
+URxvt.background: rgba:2222/2222/2222/9999
+URxvt.foreground: white
+URxvt.font: xft:Source Code Pro:pixelsize=14
+URxvt.scrollBar: false
+URxvt.scrollBar_right: true
+Xcursor.theme: Bibata-Modern-Ice
