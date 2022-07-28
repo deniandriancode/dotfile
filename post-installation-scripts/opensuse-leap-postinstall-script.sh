@@ -51,6 +51,23 @@ function xmonadInstall () {
     xmobar --restart
 }
 
+# installation for java development (maven and gradle)
+function javaDevInstall () {
+    wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+    tar -xvf apache-maven-3.8.6-bin.tar.gz
+    mv apache-maven-3.8.6-bin.tar.gz ~/.local/share
+    echo "export PATH=$PATH:/home/$USER/.local/share/apache-maven-3.8.6/bin" >> ~/.bashrc
+    source ~/.bashrc
+    curl -s "https://get.sdkman.io" | bash
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    sdk install gradle
+}
+
+# build essential compatible
+function buildEssentialInstall () {
+    sudo zypper install -t pattern devel_basis
+}
+
 # install doom emacs, make sure you have installed git and emacs 27.1+ on your machine
 # backup your ~/.emacs.d folder or ~/.emacs file
 function doomEmacsInstall () {
