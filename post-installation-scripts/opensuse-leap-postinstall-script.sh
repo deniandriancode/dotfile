@@ -35,6 +35,22 @@ function nixInstall () {
     sh <(curl -L https://nixos.org/nix/install) --daemon
 }
 
+# xmonad installation
+function xmonadInstall () {
+    installPackage xmonad*
+    installPackage ghc-xmonad*
+    installPackage xmobar
+    installPackage ghc-xmobar*
+    rm -rf ~/.xmonad
+    rm -rf ~/.xmobar
+    mkdir ~/.xmonad
+    mkdir ~/.xmobar
+    cp ../xmonad.hs ~/.xmonad
+    cp ../xmobarrc ~/.xmobar
+    xmonad --recompile
+    xmobar --restart
+}
+
 # install doom emacs, make sure you have installed git and emacs 27.1+ on your machine
 # backup your ~/.emacs.d folder or ~/.emacs file
 function doomEmacsInstall () {
@@ -89,3 +105,5 @@ done
 braveBrowserInstall
 nixInstall
 doomEmacsInstall
+xmonadInstall
+
