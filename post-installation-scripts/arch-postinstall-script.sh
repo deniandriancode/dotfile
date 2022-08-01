@@ -183,7 +183,7 @@ tamsyn-font
 
 # do not change the order, you may comment or uncomment lines
 refreshRepo
-upgradeSystem   # you maybe have to reboot after upgrading your system
+#upgradeSystem   # you maybe have to reboot after upgrading your system
 for item in "${base[@]} ${development[@]} ${sound[@]} ${bluetooth[@]} ${utils[@]} ${media[@]} ${font[@]}" ; do
     installPackage $item
 done
