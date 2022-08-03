@@ -52,7 +52,10 @@ myConfig = def
     }
   `additionalKeysP`
     [ ("M-S-z", spawn "xscreensaver-command -lock")
+    , ("M-e", spawn "emacsclient -nc")
     , ("M-C-s", unGrab *> spawn "scrot -s"        )
+    , ("M-p", spawn "call_dmenu.sh")
+    , ("M-S-m", spawn "man_list.sh")
     ]
 
 myManageHook :: ManageHook
@@ -106,7 +109,7 @@ myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "emacs --daemon &"
   spawnOnce "nitrogen --restore &"
-  spawnOnce "picom --experimental-backend &"
+  spawnOnce "compton &"
 
 myXmobarPP :: PP
 myXmobarPP = def
