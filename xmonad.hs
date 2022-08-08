@@ -54,8 +54,7 @@ myConfig = def
     [ ("M-S-z", spawn "xscreensaver-command -lock")
     , ("M-e", spawn "emacsclient -nc")
     , ("M-C-s", unGrab *> spawn "scrot -s"        )
-    , ("M-p", spawn "call_dmenu.sh")
-    , ("M-S-m", spawn "man_list.sh")
+    , ("M-p", spawn "my_dmenu.sh")
     ]
 
 myManageHook :: ManageHook
@@ -78,8 +77,8 @@ myTerminal :: String
 myTerminal = "xfce4-terminal"
 
 myNormalBorderColor, myFocusedBorderColor :: String
-myNormalBorderColor = "#999999"
-myFocusedBorderColor = "#005577"
+myNormalBorderColor = "#444444"
+myFocusedBorderColor = "#222222"
 
 myLayout = tiled ||| Full
   where

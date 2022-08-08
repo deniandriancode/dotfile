@@ -1,2 +1,2 @@
 #!/bin/bash
-dmenu -nb "#222222" -nf "gray" -sb "#754102" -sf "white" -l 15
+dmenu_run -nb "#222222" -nf "gray" -sb "#754102" -sf "white" -l 15
