@@ -52,7 +52,7 @@ myConfig = def
     }
   `additionalKeysP`
     [ ("M-S-z", spawn "xscreensaver-command -lock")
-    , ("M-e", spawn "emacsclient -nc")
+    , ("M-e", spawn "emacsclient -c")
     , ("M-C-s", unGrab *> spawn "scrot -s"        )
     , ("M-p", spawn "my_dmenu.sh")
     ]

@@ -27,7 +27,9 @@
 	page-break-lines
 	projectile
 	dashboard
-	use-package))
+	use-package
+	yaml-mode
+	json-mode))
 ;; to install, use M-x package-install-selected-packages
 
 ;; display line number
@@ -50,6 +52,7 @@
 
 ;; evil custom key binding
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-normal-state-map (kbd "C-r") 'undo-redo)
 
 ;; move text default binding
 (move-text-default-bindings)
@@ -111,7 +114,7 @@
  '(blink-cursor-mode nil)
  '(custom-enabled-themes '(doom-one))
  '(custom-safe-themes
-   '("02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" default))
+   '("02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" "afa47084cb0beb684281f480aa84dab7c9170b084423c7f87ba755b15f6776ef" default))
  '(global-display-line-numbers-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -119,4 +122,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Hack" :foundry "SRC" :slant normal :weight normal :height 98 :width normal)))))
+ )
