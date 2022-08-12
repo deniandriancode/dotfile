@@ -50,18 +50,10 @@
     enable = true;
     desktopManager = {
       xfce.enable = true;
-      # plasma5.enable = true;
     };
     displayManager = {
-      gdm.enable = true;
-      # sddm.enable = true;
-      #sddm.theme = "${(pkgs.fetchFromGitHub {
-#	    owner = "MarianArlt";
-#	    repo = "kde-plasma-chili";
-#	    rev = "a371123959676f608f01421398f7400a2f01ae06";
-#	    sha256 = "17pkxpk4lfgm14yfwg6rw6zrkdpxilzv90s48s2hsicgl3vmyr3x";
-#	})}";
-       # sddm.theme = "breeze";
+      lightdm.enable = false;
+      startx.enable = true;
     };
     windowManager = {
       awesome.enable = true;
@@ -70,10 +62,6 @@
 
   services.picom = {
     enable = true;
-    fade = true;
-    #inactiveOpacity = 1;
-    shadow = true;
-    fadeDelta = 2;
   };
 
   # qt and gtk theme
@@ -100,38 +88,29 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.<your_user_name> = {
-      initialPassword = "<insert_very_strong_password_here>";
+  users.users.deni = {
+      initialPassword = "df";
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    #   packages = with pkgs; [
-    # ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = [
-    pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    pkgs.vim
     pkgs.emacs
-    pkgs.file
     pkgs.curl
     pkgs.wget
     pkgs.git
     pkgs.firefox
     pkgs.brave
     pkgs.vlc
+    pkgs.evince
     pkgs.gimp
-    pkgs.os-prober
+    pkgs.file
     pkgs.dmenu
     pkgs.picom
     pkgs.nitrogen
-    pkgs.python310
-    pkgs.virtualenv
-    pkgs.gcc
-    pkgs.cabal-install
-    pkgs.ghc
-    pkgs.nodejs
-    pkgs.nodePackages.npm
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
