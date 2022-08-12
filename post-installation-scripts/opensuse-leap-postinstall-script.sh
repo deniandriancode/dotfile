@@ -107,7 +107,6 @@ media=(
     gimp
     inkscape
     vlc
-    audacity
     flameshot
 )
 
