@@ -9,6 +9,7 @@
 (global-set-key (kbd "C-x C-'") 'auto-complete-mode)
 (global-set-key (kbd "C-x C-<return>") 'treemacs)
 (global-set-key (kbd "C-x C-\]") 'evil-mode)
+(global-set-key (kbd "C-x C-/") 'display-line-numbers-mode)
 
 ;; doom mode line
 (doom-modeline-mode 1)
@@ -46,6 +47,16 @@
 
 ;; hilghlight current line
 (global-hl-line-mode)
+
+;; centaur tabs
+(centaur-tabs-mode t)
+(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
+(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
+(centaur-tabs-headline-match)
+(setq centaur-tabs-style "bar")
+(setq centaur-tabs-set-icons t)
+(setq centaur-tabs-set-bar 'left)
+(setq centaur-tabs-set-modified-marker t)
 
 ;; dashboard config
 (dashboard-setup-startup-hook)
@@ -91,3 +102,6 @@
 
 ;; disable cursor blink
 (setq blink-cursor-mode nil)
+
+;; cursor shape
+(setq-default cursor-type 'bar)

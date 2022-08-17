@@ -57,8 +57,23 @@
     };
     windowManager = {
       awesome.enable = true;
+      dwm.enable = true;
     };
   };
+
+  # dwm custom build
+  nixpkgs.overlays = [
+    (final: prev: {
+      dwm = prev.dwm.overrideAttrs (_: {
+        src = builtins.fetchGit https://github.com/deniandriancode/dwm-minimal.git;
+      });
+    })
+    (final: prev: {
+      st = prev.st.overrideAttrs (_: {
+        src = builtins.fetchGit https://github.com/deniandriancode/st-minimal.git;
+      });
+    })
+  ];
 
   services.picom = {
     enable = true;
@@ -88,29 +103,38 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.deni = {
-      initialPassword = "df";
+  users.users.<your_user_name> = {
+      initialPassword = "<your_password>";
       isNormalUser = true;
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "adbusers" ]; # Enable ‘sudo’ for the user.
   };
+
+  # android
+  programs.adb.enable = true;
+  # users.users.deni.extraGroups = ["adbusers"];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
-    pkgs.vim
-    pkgs.emacs
-    pkgs.curl
-    pkgs.wget
-    pkgs.git
-    pkgs.firefox
-    pkgs.brave
-    pkgs.vlc
-    pkgs.evince
-    pkgs.gimp
-    pkgs.file
-    pkgs.dmenu
-    pkgs.picom
-    pkgs.nitrogen
+  environment.systemPackages = with pkgs; [
+    vim
+    neovim
+    emacs
+    curl
+    wget
+    zip
+    unzip
+    git
+    firefox
+    brave
+    vlc
+    evince
+    gimp
+    file
+    dmenu
+    picom
+    nitrogen
+    st
+    libreoffice
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -129,7 +153,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

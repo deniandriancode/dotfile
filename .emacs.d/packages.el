@@ -1,7 +1,7 @@
 ;; adding melpa repository for installing packages
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
 ;; list of packages to be installed, add or remove the desired packages
@@ -31,4 +31,10 @@
 	yaml-mode
 	json-mode
 	markdown-mode
-	lua-mode))
+	lua-mode
+	csv-mode
+	beacon
+	magit
+	centaur-tabs
+	format-all
+	))

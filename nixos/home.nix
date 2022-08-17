@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "deni";
-  home.homeDirectory = "/home/deni";
+  home.username = "<user_name>";
+  home.homeDirectory = "/home/<user_name>";
 
   home.packages = with pkgs; [
     htop
@@ -12,19 +12,30 @@
     neofetch
     python310
     python310Packages.virtualenv
+    xclip
     nodejs
     nodePackages.npm
+    dart
     ghc
     stack
     cabal-install
     gcc
+    conan
     gobject-introspection
+    gnome.gnome-font-viewer
   ];
 
-  home.sessionPath = [ "$HOME/.local/bin" ];
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 
   home.sessionVariables = {
     TMPDIR = ~/.tmp;
+    EDITOR = "vim";
+    TERMINAL = "xfce4-terminal";
+    ANDROID_HOME = ~/Android;
+    _JAVA_AWT_WM_NONREPARENTING = 1;
+    AWT_TOOLKIT = "MToolkit";
   };
 
   programs.bash = {
@@ -37,8 +48,8 @@
 
   programs.git = {
     enable = true;
-    userName = "deniandriancode";
-    userEmail = "deniandriancode@gmail.com";
+    userName = "<git_username>";
+    userEmail = "<git_email>";
   };
 
   # This value determines the Home Manager release that your
