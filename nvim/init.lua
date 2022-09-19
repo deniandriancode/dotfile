@@ -13,9 +13,9 @@ vim.g.maplocalleader = " "
 vim.g.user_emmet_leader_key = ","
 
 set.compatible = false
-set.tabstop = 2
-set.shiftwidth = 2
-set.softtabstop = 2
+set.tabstop = 8
+set.shiftwidth = 8
+set.softtabstop = 8
 set.expandtab = true
 set.scrolloff = 5
 set.background = "dark"
@@ -27,6 +27,13 @@ set.relativenumber = true
 set.termguicolors = true
 set.encoding = "UTF-8"
 set.cursorline = true
+set.splitbelow = true
+set.splitright = true
+set.colorcolumn = { 120 }
+set.showcmd = true
+set.showmatch = true
+set.ignorecase = true
+set.ttyfast = true
 
 vim.cmd("filetype indent on")
 vim.cmd("filetype plugin on")
@@ -53,6 +60,7 @@ map("t", "<ESC>", "<C-\\><C-n>")
 
 require('plugins')  -- plugin manager
 require("nvim-autopairs").setup {}  -- autopairs
+require("which-key").setup {} -- which key
 -- treesitter
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"

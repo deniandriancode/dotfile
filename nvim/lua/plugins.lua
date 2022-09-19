@@ -18,4 +18,7 @@ return require('packer').startup(function(use)
   use 'doums/darcula'
   use 'nvim-treesitter/nvim-treesitter'
   use 'mhinz/vim-startify'
+  -- my plugin, development only
+  -- use '~/Lua/VimPlugin/sample_plugin'
+  use 'folke/which-key.nvim'
 end)
