@@ -207,7 +207,7 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-    status_command while date +'%Y-%m-%d %H:%M '; do sleep 30; done
+    status_command while date +'%Y-%m-%d %A %H:%M '; do sleep 30; done
     font pango:SourceCodePro Medium 8
     height 18
 
