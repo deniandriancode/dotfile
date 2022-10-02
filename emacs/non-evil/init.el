@@ -18,16 +18,41 @@
 	tree-sitter
 	tree-sitter-langs
 	dashboard
+	which-key
+	vertico
+	company
+	neotree
+	rainbow-delimiters
+	rainbow-identifiers
+	atom-one-dark-theme
+	markdown-mode
 ))
 
 ;; disable backup file
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
 
+;; company mode
+(global-company-mode 1)
+;; (global-set-key (kbd "M-/") 'company-dabbrev)  ;; override dabbrev key-binding
+(setq company-minimum-prefix-length 1)  ;; set minimal prefix
+(setq company-idle-delay 0)
+
+;; rainbow delimiters, identifiers
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+
+;; neotree
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+(setq neo-window-fixed-size nil)
+(global-set-key (kbd "C-c o f") 'neotree-toggle)
+
 ;; key binding
 (global-set-key (kbd "TAB") (kbd "C-q TAB"))
+;; (global-set-key (kbd "<backtab>") (kbd "TAB"))
 (global-set-key (kbd "C-x t n") 'tab-bar-new-tab)
 (global-set-key (kbd "C-x t d") 'tab-bar-close-tab)
+(global-set-key (kbd "C-<return>") (kbd "C-e RET"))
 
 ;; half scrolling
 (defun window-half-height ()
@@ -44,8 +69,11 @@
 (global-set-key [next] 'scroll-up-half)
 (global-set-key [prior] 'scroll-down-half)
 
-(electric-pair-mode)
-(global-display-line-numbers-mode)
+;; (electric-pair-mode)
+(electric-indent-mode -1)
+(add-hook 'prog-mode-hook '(lambda ()
+			     (local-set-key (kbd "RET") 'newline-and-indent)))
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (tool-bar-mode -1)
 (global-hl-line-mode)
 (powerline-default-theme)
@@ -54,19 +82,41 @@
 (blink-cursor-mode 0)
 (setq-default cursor-type 'bar)
 
+;; disable scroll bar
+(scroll-bar-mode -1)
+
 ;; all the icons
 (use-package all-the-icons
   :if (display-graphic-p))
 
+;; vertico
+(vertico-mode)
+
+;; Different scroll margin
+(setq vertico-scroll-margin 0)
+
+;; Show more candidates
+(setq vertico-count 20)
+
+;; Grow and shrink the Vertico minibuffer
+;; (setq vertico-resize t)
+
+;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
+(setq vertico-cycle t)
+
+;; which key
+(which-key-mode)
 
 ;; treesitter
 (global-tree-sitter-mode)
 
+;; terminal mode
+(add-hook 'term-mode-hook (lambda () (display-line-numbers-mode -1)))
 
 ;; dashboard
 (dashboard-setup-startup-hook)
 ;; Set the title
-(setq dashboard-banner-logo-title "Who even use Vi/Vim/NeoVim?")
+(setq dashboard-banner-logo-title "Write some code")
 ;; Set the banner
 (setq dashboard-startup-banner 'logo)
 ;; Value can be
@@ -90,9 +140,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-minimum-prefix-length 1)
  '(custom-enabled-themes '(doom-one))
  '(custom-safe-themes
-   '("02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" default))
+   '("171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" "02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" default))
+ '(neo-window-fixed-size nil)
+ '(package-selected-packages
+   '(markdown-mode atom-one-dark-theme rainbow-identifiers rainbow-delimiters emmet-mode use-package doom-themes yasnippet yasnippet-snippets powerline-evil lua-mode rust-mode all-the-icons tree-sitter tree-sitter-langs dashboard which-key vertico company neotree))
  '(warning-suppress-log-types '((comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
