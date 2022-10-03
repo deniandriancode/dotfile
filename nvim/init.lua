@@ -35,6 +35,7 @@ set.showmatch = true
 set.ignorecase = true
 set.ttyfast = true
 
+vim.cmd("let g:lightline = {'colorscheme': 'one'}")
 vim.cmd("filetype indent on")
 vim.cmd("filetype plugin on")
 vim.cmd("syntax on")
@@ -96,4 +97,3 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-

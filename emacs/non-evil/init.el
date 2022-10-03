@@ -22,9 +22,6 @@
 	vertico
 	company
 	neotree
-	rainbow-delimiters
-	rainbow-identifiers
-	atom-one-dark-theme
 	markdown-mode
 ))
 
@@ -37,10 +34,6 @@
 ;; (global-set-key (kbd "M-/") 'company-dabbrev)  ;; override dabbrev key-binding
 (setq company-minimum-prefix-length 1)  ;; set minimal prefix
 (setq company-idle-delay 0)
-
-;; rainbow delimiters, identifiers
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
 
 ;; neotree
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
@@ -140,18 +133,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-minimum-prefix-length 1)
  '(custom-enabled-themes '(doom-one))
  '(custom-safe-themes
-   '("171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" "02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" default))
- '(neo-window-fixed-size nil)
- '(package-selected-packages
-   '(markdown-mode atom-one-dark-theme rainbow-identifiers rainbow-delimiters emmet-mode use-package doom-themes yasnippet yasnippet-snippets powerline-evil lua-mode rust-mode all-the-icons tree-sitter tree-sitter-langs dashboard which-key vertico company neotree))
- '(warning-suppress-log-types '((comp))))
+   '("02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" default)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(put 'scroll-left 'disabled nil)
