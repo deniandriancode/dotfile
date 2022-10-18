@@ -26,6 +26,7 @@ set.number = true
 set.relativenumber = true
 set.termguicolors = true
 set.encoding = "UTF-8"
+set.mouse = 'a'
 set.cursorline = true
 set.splitbelow = true
 set.splitright = true
@@ -55,6 +56,10 @@ map("n", "<leader>Tf", ":Telescope fd<CR>")
 map("n", "<leader>Tm", ":Telescope man_pages<CR>")
 map("n", "<leader>Th", ":Telescope help_tags<CR>")
 map("n", "<leader>d", ":Startify<CR>")
+map("n", "<M-Left>", "<C-w><C-h>")
+map("n", "<M-Right>", "<C-w><C-l>")
+map("n", "<M-Up>", "<C-w><C-k>")
+map("n", "<M-Down>", "<C-w><C-j>")
 
 map("i", "jk", "<ESC>")
 

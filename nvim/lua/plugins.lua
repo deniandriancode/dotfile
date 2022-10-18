@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
   use 'mattn/emmet-vim'
   use 'itchyny/lightline.vim'
   use { 'kaicataldo/material.vim', branch = 'main'  }
-  use { 'neoclide/coc.nvim', branch = 'release' }
+  --use { 'neoclide/coc.nvim', branch = 'release' }
   use 'ryanoasis/vim-devicons'
   use 'kien/ctrlp.vim'
   use 'preservim/nerdcommenter'

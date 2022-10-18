@@ -14,11 +14,13 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
+#set $term xfce4-terminal
 set $term xfce4-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# set $menu bemenu-run
 
 ### Output configuration
 #
@@ -230,6 +232,11 @@ titlebar_padding 1 1
 # border
 default_border normal 1
 
+# autostart
 exec picom --experimental-backend
+exec emacs --daemon
+
+# custom key binding
+bindsym $mod+Control+c exec emacsclient -c
 
 include /etc/sway/config.d/*

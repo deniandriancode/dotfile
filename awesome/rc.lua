@@ -49,7 +49,7 @@ end
 beautiful.init("/home/deni/.config/awesome/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "xfce4-terminal"
 dmenu = "dmenu_run"
 editor = os.getenv("EDITOR") or "vi"
 editor_cmd = terminal .. " -e " .. editor
@@ -555,7 +555,8 @@ end)
 
 -- Autostart
 apps = {
-	"picom --experimental-backend"
+	"picom --experimental-backend",
+        "emacs --daemon"
 }
 
 for app = 1, #apps do
