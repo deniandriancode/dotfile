@@ -21,6 +21,7 @@
 	lua-mode
 	rust-mode
 	haskell-mode
+	php-mode
 	pug-mode
 	yaml-mode
 	all-the-icons
@@ -47,6 +48,12 @@
 
 ;; emacs bell
 (setq ring-bell-function 'ignore)
+
+;; auto syntax
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+
+;; emmet mode
+(add-hook 'prog-mode-hook  'emmet-mode)
 
 ;; company mode
 ;; (global-company-mode 1)
@@ -81,10 +88,10 @@
 
 ;; tab
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 8)
-(setq c-basic-offset 8)
-(setq python-indent 8)
-(setq standard-indent 8)
+(setq-default tab-width 4)
+(setq c-basic-offset 4)
+(setq python-indent 4)
+(setq standard-indent 4)
 
 ;; half scrolling
 (defun window-half-height ()
@@ -103,8 +110,8 @@
 
 (electric-pair-mode)
 ;; (electric-indent-mode -1)
-(add-hook 'prog-mode-hook '(lambda ()
-			     (local-set-key (kbd "RET") 'newline-and-indent)))
+;; (add-hook 'prog-mode-hook '(lambda ()
+;; 			     (local-set-key (kbd "RET") 'newline-and-indent)))
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (tool-bar-mode -1)
 (global-hl-line-mode)
@@ -185,7 +192,7 @@
  '(electric-pair-pairs '((34 . 34) (8216 . 8217) (8220 . 8221) (96 . 96)))
  '(indent-tabs-mode t)
  '(menu-bar-mode nil)
- '(org-agenda-files '("~/Documents/notes.org"))
+ '(org-agenda-files '("/home/deni/Documents/notes.org"))
  '(package-selected-packages
    '(pug-mode haskell-mode vterm org-modern emoji-display emoji-github emoji-fontset web-mode csv-mode yaml-mode emmet-mode use-package doom-themes yasnippet yasnippet-snippets powerline-evil lua-mode rust-mode all-the-icons tree-sitter tree-sitter-langs dashboard which-key vertico company neotree markdown-mode))
  '(standard-indent 8)
@@ -197,5 +204,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JB  " :slant normal :weight normal :height 90 :width normal)))))
+ '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JB" :slant normal :weight bold :height 90 :width normal)))))
 (put 'scroll-left 'disabled nil)
